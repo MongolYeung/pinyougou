@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+
+
+
+    <!-- 页面拦截规则
+         <security:http></security:http> ： SpringSecurity 5.0版本标签
+         <http use-expressions="false">  ： SpringSecurity 4.0以上版本的标签
+
+     -->
+    <http use-expressions="false">
+        <intercept-url pattern="/**" access="ROLE_USER" />
+        <form-login/>
+    </http>
+
+    <!-- 认证管理器
+       暂时用
+       学会单点登陆之后 就不用了
+       SpringSecurity
+       1:认证   将由单点登陆Cas接管  认证之后 保存Session 保存在本地  集群 其它服务器访问不到本地Session
+       2：授权  仍由安全框架完成
+       单点登陆要与安全框架整合  互联网存在问题  传统项目
+
+     -->
+    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="admin" password="123456" authorities="ROLE_USER"/>
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+
+
+</beans:beans>

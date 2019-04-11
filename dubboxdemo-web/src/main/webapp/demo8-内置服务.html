@@ -1,0 +1,85 @@
+<html>
+<head>
+    <meta charset="utf-8" >
+	<title>入门小Demo-8  (内置服务)</title>
+	<meta charset="utf-8" />
+<!--	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module('myApp',[]); //定义了一个叫myApp的模块
+		//定义控制器
+		app.controller('myController',function($scope,$http){		
+			$scope.findAll=function(){
+				$http.get('data.json').success(
+					function(response){
+						$scope.list=response;
+					}					
+				);				
+			}			
+		});	
+	</script>	-->
+
+	<script src="angular.min.js"></script>
+	<script>
+        var app = angular.module('myApp', []);
+        //内置服务$http发送http请求 底层采用ajax方式   获取响应回来的json格式字符串数据 并回调
+
+		//$http.get(URL).success();
+		//入参:无
+		// URL:http://localhost:8080/brand/findAll.do?id=2&name=haha
+
+		//$http.post(URL,param).success();
+		//入参:有 String类型  json格式 = {k1:v1,k2:v2,....}  [{},[{},{}]....]
+		// URL:http://localhost:8080/brand/findAll.do?id=2&name=haha
+        app.controller('myController',function ($scope,$http) {
+			$scope.findAll=function () {
+			    //请求 get方式
+				$http.get('data.json').success(
+				    //响应 json格式 response就是json对象
+				  function (response) {
+					  $scope.list=response;
+                  }
+				);
+            }
+        });
+
+
+
+
+	</script>
+
+
+
+</head>
+<!--<body ng-app="myApp" ng-controller="myController" ng-init="findAll()">
+<table>
+<tr>
+	<td>姓名</td>
+	<td>数学</td>
+	<td>语文</td>
+</tr>
+<tr ng-repeat="entity in list">
+	<td>{{entity.name}}</td>
+	<td>{{entity.shuxue}}</td>
+	<td>{{entity.yuwen}}</td>
+</tr>
+</table>
+</body>-->
+
+<body ng-app="myApp" ng-controller="myController" ng-init="findAll()">
+<table>
+	<tr>
+		<td>姓名</td>
+		<td>数学</td>
+		<td>语文</td>
+	</tr>
+	<tr ng-repeat="entity in list">
+		<td>{{entity.name}}</td>
+		<td>{{entity.shuxue}}</td>
+		<td>{{entity.yuwen}}</td>
+	</tr>
+</table>
+
+</body>
+
+
+</html>

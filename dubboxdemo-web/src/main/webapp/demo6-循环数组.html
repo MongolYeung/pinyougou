@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta charset="utf-8" >
+	<title>入门小Demo-6  (循环数据)</title>
+<!--	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module('myApp',[]); //定义了一个叫myApp的模块
+		//定义控制器
+		app.controller('myController',function($scope){
+			$scope.list= [100,192,203,434 ];//定义数组
+		});
+	</script>-->
+	<script src="angular.min.js"></script>
+
+	<script>
+		//定义一个模块
+        var app = angular.module('myApp', []);
+
+		//模块定义一个控制器 控制器引用方法 传入$scope域对象
+		app.controller('myController',function ($scope) {
+            //域对象定义方法
+            $scope.list = [100, 192, 203, 434];//定义数组
+
+            //调用属性
+        })
+
+
+
+
+	</script>
+
+</head>
+<!--<body ng-app="myApp" ng-controller="myController">
+<table>
+<tr ng-repeat="x in list">
+	<td>{{x}}</td>
+</tr>
+</table>
+</body>-->
+
+<!--要求遍历数组-->
+
+<body ng-app="myApp" ng-controller="myController">
+<table>
+	<!--ng-repeat  为循环遍历语法-->
+	<tr ng-repeat="x in list">
+		<!--{{x}} 为变量语法-->
+		<td>{{x}}</td>
+	</tr>
+</table>
+
+
+
+</body>
+</html>

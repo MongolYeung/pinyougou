@@ -1,0 +1,90 @@
+<html>
+<head>
+    <meta charset="utf-8" >
+	<title>入门小Demo-7  (循环对象数组)</title>
+<!--	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module('myApp',[]); //定义了一个叫myApp的模块
+		//定义控制器
+		app.controller('myController',function($scope){		
+			$scope.list= [
+				{name:'张三',shuxue:100,yuwen:93},
+				{name:'李四',shuxue:88,yuwen:87},
+				{name:'王五',shuxue:77,yuwen:56}
+			];//定义数组			
+		});	
+	</script>	-->
+
+	<!--导入angularJS文件-->
+	<script src="angular.min.js"></script>
+
+	<!--自己的script-->
+	<script>
+		//定义一个模块
+        var app = angular.module('myApp', []);
+
+		//用模块定义一个控制器 控制器回调函数 传入$scope域对象
+		app.controller('myController',function ($scope) {
+            //$scope域对象定义方法
+			$scope.list=[
+			    {name:'张三',shuxue:100,yuwen:93},
+                {name:'李四',shuxue:88,yuwen:87},
+                {name:'王五',shuxue:77,yuwen:56}
+                ];//定义数组
+
+        });
+
+
+	</script>
+
+
+
+
+
+
+
+</head>
+<!--<body ng-app="myApp" ng-controller="myController">
+<table>
+<tr>
+	<td>姓名</td>
+	<td>数学</td>
+	<td>语文</td>
+</tr>
+<tr ng-repeat="entity in list">
+	<td>{{entity.name}}</td>
+	<td>{{entity.shuxue}}</td>
+	<td>{{entity.yuwen}}</td>
+</tr>
+</table>
+</body>-->
+
+<!--实现遍历成绩功能-->
+<!--定义$scope域作用范围-->
+<body ng-app="myApp" ng-controller="myController">
+<!--循环遍历数据需要创建一个table表格-->
+<table>
+	<tr>
+		<td>姓名</td>
+		<td>数学</td>
+		<td>语文</td>
+	</tr>
+	<!--纵向遍历需要在当前 tr 标签 引入循环语法  ng-repeat -->
+
+	<!--list为遍历数据的集合  entity为每一个遍历对象-->
+	<tr ng-repeat="entity in list">
+		<!--{{entity.name}}} 展示当前对象的属性  使用{{}}语法括起来  -->
+		<td>{{entity.name}}</td>
+		<td>{{entity.shuxue}}</td>
+		<td>{{entity.yuwen}}</td>
+	</tr>
+</table>
+
+
+
+</body>
+
+
+
+
+</html>
